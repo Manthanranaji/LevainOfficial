@@ -43,7 +43,7 @@ export default function NavBar(){
                         className="md:hidden flex flex-col gap-1.5 p-1">
                         <span className={`w-8 h-0.5 rounded-lg bg-[#a89880] block transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
                         <span className={`w-8 h-0.5 rounded-lg bg-[#a89880] block transition-all duration-300 ${open ? 'opacity-0' : ''}`}></span>
-                        <span className={`w-4 h-0.5 rounded-lg bg-[#a89880] block transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                        <span className={`w-4 h-0.5 rounded-lg bg-[#a89880] block transition-all duration-300 ${open ? '-rotate-45 w-8 -translate-y-2' : ''}`}></span>
                     </button>
                 </div>
             </div>
