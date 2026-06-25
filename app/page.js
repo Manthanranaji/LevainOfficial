@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import useReveal from "./hooks/reveal";
 import NavBar from "./navbar";
 
 const cards = [
@@ -69,6 +70,11 @@ function Card({name, process, feel}){
 }
 
 export default function Home() {
+
+  const ref = useReveal()
+  const ref1 = useReveal()
+  const ref2 = useReveal()
+
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#0e0a07]">
       <NavBar/>
@@ -79,17 +85,17 @@ export default function Home() {
       </div>
 
       <div className="w-full min-h-screen px-4 z-10 py-8 mt-32">
-        <span className="font-inter text-xs tracking-widest -mt-6 text-[#a89880] uppercase">
+        <span className="opacity-0 animate-fade-up [animation-delay:300ms] font-inter text-xs tracking-widest -mt-6 text-[#a89880] uppercase">
           &mdash; levain · artisan bakery
         </span>
 
-        <h1 className="font-cormorant mb-6 md:mb-10 italic text-7xl mt-6 md:text-9xl text-[#f2ead8]">
+        <h1 className="opacity-0 animate-fade-left font-cormorant mb-6 md:mb-10 italic text-7xl mt-6 md:text-9xl text-[#f2ead8]">
           Every loaf begins the<span className="text-transparent [-webkit-text-stroke:1px_rgba(240,237,232,0.25)]"> night</span> before.
         </h1>
 
         <Link
           href={"/about"}
-          className="font-inter md:text-xl font-light text-xs py-4 px-4 tracking-wider uppercase text-[#c9973a]"
+          className="opacity-0 animate-fade-right [animation-delay:0.6s] font-inter md:text-xl font-light text-xs py-4 px-4 tracking-wider uppercase text-[#c9973a]"
         >
           Discover our Story ↓
         </Link>
@@ -103,8 +109,8 @@ export default function Home() {
 
       <section className="w-full h-fit mb-16 px-4 py-16 bg-[#161009] border border-[#3d2e1e]/40 -mt-48">
         <span className="font-inter text-xs text-[#a89880] tracking-widest uppercase">&mdash; 01 · Our Craft</span>
-        <h2 className="font-libre tracking-wide leading-snug italic text-4xl text-[#f2ead8] mt-6">Made by <span className="text-[#c9973a]">hand</span>. <span className="block">Every single time</span></h2>
-        <p className="text-[#a89880] mt-6 font-inter tracking-widest leading-12 text-sm">
+        <h2 ref={ref} className="opacity-0 font-libre tracking-wide leading-snug italic text-4xl text-[#f2ead8] mt-6">Made by <span className="text-[#c9973a]">hand</span>. <span className="block">Every single time</span></h2>
+        <p ref={ref1} className="opacity-0 text-[#a89880] mt-6 font-inter tracking-widest leading-12 text-sm">
           No shortcuts. No machines doing the work that hands should do. Just flour, water, salt, and someone who cares enough to be here at 4am.</p>
       </section>
 
@@ -114,7 +120,7 @@ export default function Home() {
           &mdash; 02 · THE SIGNATURE
         </span>
 
-        <h3 className="text-[#f2ead8] text-4xl mt-4 mb-12 font-libre italic tracking-wider leading-snug">
+        <h3 ref={ref2} className="opacity-0 text-[#f2ead8] text-4xl mt-4 mb-12 font-libre italic tracking-wider leading-snug">
           What we're known for.
         </h3>
 
